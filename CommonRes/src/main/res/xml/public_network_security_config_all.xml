@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:tools="http://schemas.android.com/tools">
+
+    <base-config>
+    <!-- 配置true,可以使用http铭文-->
+        <base-config cleartextTrafficPermitted="false" />
+    </base-config>
+
+    <domain-config tools:ignore="NetworkSecurityConfig">
+        <domain  includeSubdomains="true">www.baidu.com</domain>
+    </domain-config>
+
+
+    <!--  buggly 上传错误信息（buggly 是http,因此需要排除buggly） -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">android.bugly.qq.com</domain>
+    </domain-config>
+
+
+    <!--<base-config>-->
+        <!--&lt;!&ndash; 配置true,可以使用http铭文&ndash;&gt;-->
+        <!--<base-config cleartextTrafficPermitted="false" />-->
+    <!--</base-config>-->
+
+    <!--<domain-config tools:ignore="NetworkSecurityConfig">-->
+        <!--<domain>www.baidu.com</domain>-->
+
+        <!--&lt;!&ndash; 配置信任的证书&ndash;&gt;-->
+        <!--<trust-anchors>-->
+            <!--&lt;!&ndash; 信任指定文件夹下的证书&ndash;&gt;-->
+            <!--<certificates src="@raw/my_cas"/>-->
+            <!--&lt;!&ndash; 信任指定的证书&ndash;&gt;-->
+            <!--<certificates src="@raw/ca_1"/>-->
+            <!--<certificates src="@raw/ca_1"/>-->
+
+            <!--&lt;!&ndash; 一组固定公钥，在指定时间内，信任某个安全链接,-->
+            <!--主要是为了防止尚未更新的应用，出现连接的问题&ndash;&gt;-->
+            <!--<pin-set expiration="2019-07-20">-->
+                <!--<pin digest="SHA-256">7HIpactkIAq2Y49orFOOQKurWxmmSFZhBCoQYcRhJ3Y=</pin>-->
+                <!--<pin digest="SHA-256">fwza0LRMXouZHRC8Ei+4PyuldPDcf3UKgO/04cDM1oE=</pin>-->
+            <!--</pin-set>-->
+        <!--</trust-anchors>-->
+
+
+        <!--&lt;!&ndash; 用于调试的CA认证：仅在 android:debuggable 为 true 时才信任的仅调试 CA&ndash;&gt;-->
+        <!--<debug-overrides>-->
+            <!--<domain>www.baidu.com</domain>-->
+
+            <!--&lt;!&ndash; 配置信任的证书&ndash;&gt;-->
+            <!--<trust-anchors>-->
+                <!--&lt;!&ndash; 信任指定文件夹下的证书&ndash;&gt;-->
+                <!--<certificates src="@raw/my_cas"/>-->
+                <!--&lt;!&ndash; 信任指定的证书&ndash;&gt;-->
+                <!--<certificates src="@raw/ca_1"/>-->
+                <!--<certificates src="@raw/ca_1"/>-->
+            <!--</trust-anchors>-->
+
+        <!--</debug-overrides>-->
+
+    <!--</domain-config>-->
+
+
+</network-security-config>

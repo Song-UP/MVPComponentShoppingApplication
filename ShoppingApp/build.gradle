@@ -1,0 +1,170 @@
+apply plugin: 'com.android.application'
+// 依赖插件脚本
+//apply from: 'tinker-support.gradle'
+
+//制作补丁时将这个打开，auto-patch-plugin紧跟着com.android.application
+//apply plugin: 'auto-patch-plugin'
+//apply plugin: 'robust'
+
+apply plugin: 'bugly'
+
+// 依赖插件脚本
+//apply from: 'tinker-support.gradle'
+bugly {
+    appId = 'c9e666c5fb'
+    appKey = 'cf8d7fc3-b083-478d-a952-7e6c50d3c759'
+}
+
+android {
+    flavorDimensions "default"
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    useLibrary 'org.apache.http.legacy'
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "me.song.shopApp"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode 2
+        versionName "1.0.2"
+        //设置支持multidex
+        multiDexEnabled true
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        defaultConfig {
+            ndk {
+                // 设置支持的SO库架构
+//                    abiFilters "armeabi-v7a", "x86"
+                abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            }
+        }
+    }
+    signingConfigs {
+        sign {
+            storeFile file("modelmvp.jks")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+        }
+        dev {
+            storeFile file("modelmvp.jks")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "true"
+            buildConfigField "boolean", "IS_BUILD_MODULE", "${isBuildModule}"
+
+            signingConfig signingConfigs.dev
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            buildConfigField "boolean", "IS_BUILD_MODULE", "${isBuildModule}"
+
+            signingConfig signingConfigs.sign//签名文件路径
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+
+//根据平台打包
+    productFlavors {
+        beta {
+            applicationId "com.example.songup.beta"
+            signingConfig signingConfigs.sign
+            manifestPlaceholders = [
+                    app_name: "测试版本",
+                    appIcon : "@mipmap/shopping_logo"
+            ]
+            buildConfigField("String", "HOST_URL", "\"https://wwwtestapi.bwit.cc//cn/cgi/app/0/%s/\"")
+//这个是最常用到的
+            buildConfigField("boolean", "MONITOR", "false")
+            buildConfigField "String[]", "HOST_URL_Array",
+                    "{" +
+                            "\"https://123.140.238.36\"" +
+                            "}"
+            buildConfigField("String", "TINKER_ID", "\"c9e666c5fb\"")
+        }
+    }
+
+//    resourcePrefix "shopping_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    if (!isBuildModule.toBoolean()) {
+        //在宿主 App 中使用 implementation 依赖业务组件, 业务组件的代码就会完全暴露给宿主 App, 不利于代码的隔离
+        //使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 仅在运行时对宿主 App 可见
+//        runtimeOnly project(":module_zhihu")
+//        runtimeOnly project(":module_gank")
+//        runtimeOnly project(":module_gold")
+    }
+    implementation project(':CommonRes')
+    //因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
+    implementation project(':CommonService')
+//    implementation project(':IMKit')
+//    //    compile project(':RedPacket')
+//    implementation project(':IMLib')
+    //tools
+    implementation 'com.android.support:support-annotations:28.0.0'
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    //view
+    annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
+        exclude module: 'support-annotations'
+    }
+    //test
+    testImplementation rootProject.ext.dependencies["junit"]
+    debugImplementation rootProject.ext.dependencies["canary-debug"]
+    releaseImplementation rootProject.ext.dependencies["canary-release"]
+    testImplementation rootProject.ext.dependencies["canary-release"]
+    implementation 'com.android.support:design:28.0.0'
+    //banner轮播图
+    implementation 'com.youth.banner:banner:1.4.10'
+    //圆形图片
+    //    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //注释掉原有bugly的仓库(buggly  异常上报，升级)
+    //compile 'com.tencent.bugly:crashreport:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.3.2
+    implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    //集成了支付相关的
+    implementation 'com.github.javen205:JPay:0.0.4'
+    implementation project(path: ':sonicweb')
+
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    // 指定tinker依赖版本（注：应用升级1.3.5版本起，不再内置tinker）
+    //    implementation 'com.tencent.tinker:tinker-android-lib:1.9.1'
+    //热修复
+//    implementation 'com.meituan.robust:robust:0.4.82'
+//    implementation files('libs/auto-patch-plugin-0.4.82.jar')
+}

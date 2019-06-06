@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="70dp"
+    android:layout_height="40dp"
+    >
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        tools:text="新闻"
+        android:layout_gravity="center"
+        />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="40dp"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_red_light"
+        android:layout_gravity="center_horizontal|bottom"
+        />
+
+
+
+</FrameLayout>

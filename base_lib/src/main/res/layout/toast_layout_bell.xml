@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_corners_toast"
+    android:paddingTop="21dp"
+    android:paddingBottom="22dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:layout_width="25.6dp"
+        android:layout_height="32dp"
+        android:src="@mipmap/bell"
+        android:layout_marginBottom="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:text="期数更新至20175436期"
+        android:id="@+id/title"
+        />
+</LinearLayout>

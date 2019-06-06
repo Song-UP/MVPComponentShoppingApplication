@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sonic" >
+    <application>
+
+        <activity android:name=".BrowserActivity"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>

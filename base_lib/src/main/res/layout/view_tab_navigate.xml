@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/tab_navigate_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:orientation="horizontal" />
+
+    <ui.LineBlockScrollView
+        android:id="@+id/tab_navigate_block"
+        android:layout_width="match_parent"
+        android:layout_height="4dp" />
+
+    <View
+        android:id="@+id/line"
+        style="@style/LineSpaceStyle" />
+</LinearLayout>

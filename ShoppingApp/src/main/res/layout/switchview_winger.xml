@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    >
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:text="名字"
+        android:textColor="@color/public_black"
+        android:paddingTop="5dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:maxLength="10"
+        android:paddingBottom="5dp"
+        android:textSize="10sp"
+        android:paddingLeft="@dimen/public_font_16sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:text="名字"
+        android:textColor="@android:color/holo_red_light"
+        android:paddingTop="5dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:maxLength="10"
+        android:paddingBottom="5dp"
+        android:textSize="10sp"
+        android:layout_gravity="center"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:text="名字"
+        android:layout_gravity="right"
+        android:textColor="@color/public_black"
+        android:paddingTop="5dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:maxLength="10"
+        android:paddingBottom="5dp"
+        android:textSize="10sp"
+        android:paddingRight="@dimen/public_font_16sp"
+        />
+
+</FrameLayout>

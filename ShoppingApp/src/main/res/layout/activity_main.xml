@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <!--android:paddingTop="@android:dimen/status_bar_height"-->
+
+    <com.song.songup.shoppingapp.mvp.ui.weight.NavigateBarView
+        android:id="@+id/navigation_header_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigate_return_enable="true"
+        android:background="@drawable/tops"
+        app:navigate_bar_center_title="标题"
+
+        />
+    <com.song.songup.shoppingapp.mvp.ui.weight.NoScrollViewPager
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:navigate_bar_center_title="这是一个标题"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button"
+        />
+
+
+
+    <com.song.songup.shoppingapp.mvp.ui.weight.MainTabLayout
+        android:id="@+id/maintablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/public_white"
+        >
+        <com.song.songup.shoppingapp.mvp.ui.weight.MainTabView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:selSrc="@drawable/icon_buy_checked"
+            app:unselSrc="@drawable/icon_buy_normal"
+            app:selText="首页"
+            app:selTextColor="@color/public_color_F55122"
+            app:unselTextColor="@color/public_color_6C6C6C"
+
+            app:isSel="true"
+            android:layout_height="match_parent"/>
+        <com.song.songup.shoppingapp.mvp.ui.weight.MainTabView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:selSrc="@drawable/icon_buy_checked"
+            app:unselSrc="@drawable/icon_buy_normal"
+            app:selText="分类"
+            app:selTextColor="@color/public_color_F55122"
+            app:unselTextColor="@color/public_color_6C6C6C"
+            app:isSel="false"
+            android:layout_height="match_parent"/>
+        <com.song.songup.shoppingapp.mvp.ui.weight.MainTabView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:selSrc="@drawable/icon_buy_checked"
+            app:unselSrc="@drawable/icon_buy_normal"
+            app:selText="超级淘"
+            app:selTextColor="@color/public_color_F55122"
+            app:unselTextColor="@color/public_color_6C6C6C"
+            app:isSel="false"
+            android:layout_height="match_parent"/>
+        <com.song.songup.shoppingapp.mvp.ui.weight.MainTabView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:selSrc="@drawable/icon_buy_checked"
+            app:unselSrc="@drawable/icon_buy_normal"
+            app:selText="购物车"
+            app:selTextColor="@color/public_color_F55122"
+            app:unselTextColor="@color/public_color_6C6C6C"
+            app:isSel="false"
+            android:layout_height="match_parent"/>
+        <com.song.songup.shoppingapp.mvp.ui.weight.MainTabView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:selSrc="@drawable/icon_buy_checked"
+            app:unselSrc="@drawable/icon_buy_normal"
+            app:selText="我的"
+            app:selTextColor="@color/public_color_F55122"
+            app:unselTextColor="@color/public_color_6C6C6C"
+            app:isSel="false"
+            android:layout_height="match_parent"/>
+    </com.song.songup.shoppingapp.mvp.ui.weight.MainTabLayout>
+</LinearLayout>

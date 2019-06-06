@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="me.jessyan.armscomponent.commonsdk">
+
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>/
+
+    <application>
+
+        <!-- rongcloud-->
+        <!-- 定义FileProvider -->
+        <!--<provider-->
+            <!--android:name="android.support.v4.content.FileProvider"-->
+            <!--android:authorities="com.demo.fileprovider"-->
+            <!--android:exported="false"-->
+            <!--android:grantUriPermissions="true">-->
+            <!--<meta-data-->
+                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+                <!--android:resource="@xml/file_provider" />-->
+        <!--</provider>-->
+
+    </application>
+
+
+</manifest>

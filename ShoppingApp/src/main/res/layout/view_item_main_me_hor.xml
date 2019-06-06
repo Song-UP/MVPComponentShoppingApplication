@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="59dp"
+    android:background="@color/public_white"
+    android:gravity="center_vertical"
+    android:paddingRight="24dp"
+    android:paddingLeft="24dp"
+
+    >
+
+    <ImageView
+        android:id="@+id/iv_left"
+        android:layout_width="24dp"
+        android:layout_height="21dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_order" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        tools:text="标题名"
+        android:textColor="#272727"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="参与0个活动"
+        android:textColor="#989898"
+        android:textSize="14sp"
+        />
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginLeft="16dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_in" />
+
+</LinearLayout>

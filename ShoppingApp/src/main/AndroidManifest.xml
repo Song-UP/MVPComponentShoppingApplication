@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.song.songup.shoppingapp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!-- buggly 需要的权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+<!--支付宝-->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.hardware.nfc.hce"/>
+
+    <!-- 在AndroidManifest.xml中配置支持最大高宽比 -->
+    <meta-data
+        android:name="android.max_aspect"
+        android:value="2.4" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- &lt;!&ndash;沉浸式&ndash;&gt; -->
+    <!-- <meta-data -->
+    <!-- android:name="android.max_aspect" -->
+    <!-- android:value="2.4" /> -->
+    <!-- &lt;!&ndash;适配华为（huawei）刘海屏&ndash;&gt; -->
+    <!-- <meta-data -->
+    <!-- android:name="android.notch_support" -->
+    <!-- android:value="true"/> -->
+    <!-- &lt;!&ndash;适配小米（xiaomi）刘海屏&ndash;&gt; -->
+    <!-- <meta-data -->
+    <!-- android:name="notch.config" -->
+    <!-- android:value="portrait|landscape" /> -->
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="false"
+        android:icon="${appIcon}"
+        android:label="${app_name}"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/public_network_security_config_all"
+        android:supportsRtl="true"
+        android:theme="@style/public_AppTheme02"
+
+        tools:replace="allowBackup,label">
+
+        <!-- android:supportsRtl="true" 避免语言切换时导致布局方向从右到左 -->
+        <!-- 启用硬件加速 避免引导页面的ViewPager报了OOM异常 -->
+        <!-- android:hardwareAccelerated="false" -->
+        <!-- android:largeHeap="true" -->
+        <!--
+       只要依赖 AutoSize 就必须填写设计图尺寸, 否则报错, 不想使用 AutoSize 就不要依赖 AutoSize
+       只要填写完设计图的尺寸, AutoSize 就会自动启动, 以下 dp 尺寸是根据公式 px / (dpi / 160) 求出, 运算时使用测试机的 dpi 即可
+       AutoSize 的详细介绍请看这里 https://juejin.im/post/5bce688e6fb9a05cf715d1c2
+        -->
+
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="360" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="640" />
+
+        <!--
+        每个业务组件需要声明两个 ConfigModule, CommonSDK 的 ConfigModule 和 业务组件自己的 ConfigModule
+        CommonSDK 的 ConfigModule 含有有每个组件都可共用的配置信息, 业务组件自己的 ConfigModule 含有自己独有的配置
+        信息, 这样即可重用代码, 又可以允许每个组件可自行管理自己独有的配置信息, 如果业务组件没有独有的配置信息则只需要
+        声明 CommonSDK 的 ConfigModule
+        -->
+
+        <meta-data
+            android:name="com.song.songup.shoppingapp.app.GlobalConfiguration"
+            android:value="ConfigModule"/>
+
+        <meta-data
+            android:name="me.jessyan.armscomponent.commonsdk.core.GlobalConfiguration"
+            android:value="ConfigModule" />
+
+
+        <!-- buggly 升级界面 -->
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity android:name=".mvp.ui.activity.TestActivity"/>
+        <activity
+            android:name=".mvp.ui.activity.MainAcActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--
+        在特定下可以打开当前Activity，
+        如下，当在浏览器中输入  http://www.devdiv.com/1.pdf ，那么这个activity自动被浏览器给调起来。
+            -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+            <!-- <data -->
+            <!-- android:scheme="http" -->
+            <!-- android:mimeType="application/pdf"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+
+
+        <activity android:name=".mvp.ui.activity.champion.ResultActivity"></activity>
+
+        <!-- 微信支付 -->
+        <activity
+            android:name="com.jpay.weixin.WXPayEntryActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity-alias
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:targetActivity="com.jpay.weixin.WXPayEntryActivity" />
+        <!-- 微信支付 end -->
+
+
+        <!-- 支付宝支付 -->
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+
+        <!-- 支付宝支付 end -->
+
+        <!-- 银联支付 -->
+        <uses-library android:name="org.simalliance.openmobileapi" android:required="false"/>
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name="com.unionpay.UPPayWapActivity"
+            android:configChanges="orientation|keyboardHidden|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <!-- 银联支付 end -->
+
+
+    </application>
+
+</manifest>

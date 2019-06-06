@@ -1,0 +1,1 @@
+注：集成时必须添加 libsqlite.so 文件，如不添加会出现 android 7.0 以上的机型 connect 的 3 个回调都不走的情况，具体请参考知识库：https://support.rongcloud.cn/kb/NTQw

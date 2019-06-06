@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="font_red">#fff40c27</color>
+    <color name="font_black">#ff333333</color>
+    <color name="lottery_black">#3f3f3f</color>
+    <color name="bg_white">#ffffffff</color>
+    <color name="yellow_bar">#FFA500</color>
+    <color name="bg_grey">#f5f5f5</color>
+    <color name="line_space">#ffb3b3af</color>
+    <color name="passwordFrame">#999999</color>
+    <color name="light_green">#60a8ce55</color>
+    <color name="light_yellow">#25FFA500</color>
+    <color name="blue">#2a10ed</color>
+    <color name="green">#0ef21d</color>
+    <color name="new_bg_grey">#f9f9f9</color>
+    <color name="purple">#7027a0</color>
+    <color name="purples">#661dac</color>
+    <color name="transparent_bg">#99000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="luzi_red">#CF5B5B</color>
+    <color name="luzi_blue">#8F9AD8</color>
+    <color name="text_gray">#87808d</color>
+</resources>

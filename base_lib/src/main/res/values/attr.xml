@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AreaCircle">
+        <attr name="cicle_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="NavigateBar">
+        <attr name="navigate_bar_icon" format="reference" />
+        <attr name="navigate_return_enable" format="boolean" />
+        <attr name="has_line" format="boolean" />
+        <attr name="navigate_bar_left_title" format="string" />
+        <attr name="navigate_bar_center_title" format="string" />
+        <attr name="navigate_bar_operate_title" format="string" />
+        <attr name="navigate_bar_operate_icon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LineBlockScrollView">
+        <attr name="LineBlockScrollView_cellwidth_percent" format="float" />
+        <attr name="LineBlockScrollView_cell_num" format="integer" />
+        <attr name="LineBlockScrollView_position" format="integer" />
+        <attr name="LineBlockScrollView_line_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TabNavigate">
+        <attr name="tab_navigate_tabs_title" format="reference" />
+        <attr name="tab_navigate_tabs_title_style" format="reference" />
+        <attr name="tab_navigate_tabs_icon" format="reference" />
+        <attr name="tab_navigate_line_color" format="color" />
+        <attr name="tab_navigate_line_percent" format="float" />
+        <attr name="tab_navigate_current_position" format="integer" />
+        <attr name="tab_navigate_tabs_line_space_visiable" format="boolean" />
+        <attr name="tab_navigate_tabs_line_space_height" format="dimension" />
+        <attr name="tab_navigate_tabs_icon_size" format="dimension" />
+    </declare-styleable>
+
+    <style name="LineSpaceStyle">
+        <item name="android:background">@color/line_space</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="style_tabs_text" parent="style_font_base">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@drawable/tab_navigate_text_color_selector</item>
+    </style>
+
+    <!--TextFontStyle-->
+    <style name="style_font_base" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <declare-styleable name="LineRecordView">
+        <attr name="is_line_record_short" format="boolean" />
+        <attr name="is_left_long" format="boolean"/>
+        <attr name="line_record_left_icon" format="reference" />
+        <attr name="line_record_left_title" format="string" />
+        <attr name="line_record_center_title" format="string" />
+        <attr name="line_record_right_icon" format="reference" />
+        <attr name="line_record_right_title" format="string" />
+        <attr name="line_record_default_padding" format="boolean" />
+        <attr name="line_left_title_size" format="integer" />//默认是0
+    </declare-styleable>
+</resources>

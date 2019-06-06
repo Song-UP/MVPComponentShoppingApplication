@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="MyTablayoutstyle" parent="Base.Widget.Design.TabLayout">
+        <item name="tabBackground">@color/public_white</item>
+        <item name="tabIndicatorColor">@android:color/holo_red_light</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabSelectedTextColor">@android:color/holo_red_light</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/public_black</item>
+        <!--app:tabMode="scrollable"  将tablayout设置的可以滑动, MODE_FIXED 不可滑动，充满控件-->
+    </style>
+</resources>

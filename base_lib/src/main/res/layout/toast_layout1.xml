@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_corners_toast"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="18dp"
+    android:paddingBottom="14dp"
+    android:paddingLeft="35dp"
+    android:paddingRight="35dp"
+    >
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/alert"
+        />
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:text="活动暂停，请等待！"
+        android:id="@+id/title"
+        />
+</LinearLayout>

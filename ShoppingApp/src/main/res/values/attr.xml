@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="selText" format="string" />
+    <attr name="unselText" format="string" />
+    <attr name="selTextColor" format="color" />
+    <attr name="unselTextColor" format="color" />
+
+    <attr name="selSrc" format="reference" />
+    <attr name="unselSrc" format="reference" />
+
+    <attr name="isSel" format="boolean" />
+    <!-- tab 上边是文字，下边是线 -->
+    <declare-styleable name="MainTabView">
+        <attr name="selText"/>
+        <!--<attr name="unselText"/>-->
+
+        <attr name="selTextColor"/>
+        <attr name="unselTextColor"/>
+
+        <attr name="selSrc"/>
+        <attr name="unselSrc"/>
+        <attr name="isSel"/>
+    </declare-styleable>
+
+    <!-- tab 上边是文字，下边是线 -->
+    <declare-styleable name="MyTablayout">
+        <attr name="selText"/>
+
+        <attr name="tabIndicatorColor" format="color"/>
+        <attr name="selTextColor"/>
+        <attr name="unselTextColor"/>
+    </declare-styleable>
+
+    <!-- 标题专用 -->
+    <declare-styleable name="NavigateBar">
+        <attr name="navigate_bar_icon" format="reference" />
+        <attr name="navigate_return_enable" format="boolean" />
+        <attr name="has_line" format="boolean" />
+        <attr name="navigate_bar_left_title" format="string" />
+        <attr name="navigate_bar_center_title" format="string" />
+        <attr name="navigate_bar_right_title" format="string" />
+        <attr name="navigate_bar_right_src" format="reference" />
+    </declare-styleable>
+
+
+    <!--  -->
+    <attr name="topSrc" format="reference" />
+    <attr name="bottomText" format="string" />
+
+    <declare-styleable name="ActivityItemView">
+        <attr name="topSrc"/>
+        <attr name="bottomText"/>
+    </declare-styleable>
+
+    <attr name="leftSrc" format="reference" />
+    <attr name="middle_title" format="string" />
+
+    <attr name="rightText" format="string" />
+    <attr name="isShowRightIv" format="boolean" />
+
+
+    <declare-styleable name="MainMeItemView">
+        <attr name="leftSrc"/>
+        <attr name="title"/>
+        <attr name="rightText"/>
+        <attr name="isShowRightIv"/>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="MainMeVerItemView">
+        <attr name="topSrc"/>
+        <attr name="bottomText"/>
+    </declare-styleable>
+
+
+
+
+
+
+</resources>

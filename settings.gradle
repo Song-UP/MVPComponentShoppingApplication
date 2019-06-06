@@ -1,0 +1,1 @@
+include ':app', ':ShoppingApp', ':CommonService', ':CommonSDK', ':CommonRes',':sonicweb', ':base_lib', ':vlayout'
