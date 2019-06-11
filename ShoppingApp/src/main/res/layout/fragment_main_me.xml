@@ -117,7 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:isShowRightIv="false"
-                app:title="我的收藏" />
+                app:title="vlayout"
+                android:id="@+id/meitemview_vlayout"/>
 
             <View
                 android:layout_width="match_parent"
@@ -127,10 +128,11 @@
                 android:background="#efefef" />
 
             <com.song.songup.shoppingapp.mvp.ui.weight.MainMeItemView
+                android:id="@+id/itemview_animal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:isShowRightIv="false"
-                app:title="我的收藏" />
+                app:title="动画" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

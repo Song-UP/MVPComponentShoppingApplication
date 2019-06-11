@@ -181,4 +181,6 @@ public class MainAcActivity extends MyBaseActivity<MainAcPresenter> implements M
     public void onViewClicked() {
         mPresenter.requestDailyList();
     }
+
+
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.song.songup.shoppingapp"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.song.songup.shoppingapp">
 
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
@@ -14,11 +14,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-<!--支付宝-->
+    <!-- 支付宝 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD" />
     <uses-permission android:name="android.permission.NFC" />
-    <uses-feature android:name="android.hardware.nfc.hce"/>
+
+    <uses-feature android:name="android.hardware.nfc.hce" />
 
     <!-- 在AndroidManifest.xml中配置支持最大高宽比 -->
     <meta-data
@@ -52,7 +53,6 @@
         android:networkSecurityConfig="@xml/public_network_security_config_all"
         android:supportsRtl="true"
         android:theme="@style/public_AppTheme02"
-
         tools:replace="allowBackup,label">
 
         <!-- android:supportsRtl="true" 避免语言切换时导致布局方向从右到左 -->
@@ -81,20 +81,17 @@
 
         <meta-data
             android:name="com.song.songup.shoppingapp.app.GlobalConfiguration"
-            android:value="ConfigModule"/>
-
+            android:value="ConfigModule" />
         <meta-data
             android:name="me.jessyan.armscomponent.commonsdk.core.GlobalConfiguration"
             android:value="ConfigModule" />
-
 
         <!-- buggly 升级界面 -->
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent" />
-
-        <activity android:name=".mvp.ui.activity.TestActivity"/>
+        <activity android:name=".mvp.ui.activity.TestActivity" />
         <activity
             android:name=".mvp.ui.activity.MainAcActivity"
             android:configChanges="orientation|screenSize"
@@ -118,9 +115,8 @@
             <!-- android:mimeType="application/pdf"/> -->
             <!-- </intent-filter> -->
         </activity>
-
-
-        <activity android:name=".mvp.ui.activity.champion.ResultActivity"></activity>
+        <activity android:name=".mvp.ui.activity.champion.ResultActivity" />
+        <activity android:name=".mvp.ui.activity.animal.SplashActivity"/>
 
         <!-- 微信支付 -->
         <activity
@@ -128,6 +124,7 @@
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <activity-alias
             android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
@@ -142,35 +139,36 @@
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
             android:name="com.alipay.sdk.app.H5AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
 
         <!-- 支付宝支付 end -->
 
+
         <!-- 银联支付 -->
-        <uses-library android:name="org.simalliance.openmobileapi" android:required="false"/>
+        <uses-library
+            android:name="org.simalliance.openmobileapi"
+            android:required="false" />
+
         <activity
             android:name="com.unionpay.uppay.PayActivity"
-            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             android:excludeFromRecents="true"
-            android:windowSoftInputMode="adjustResize"/>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.unionpay.UPPayWapActivity"
             android:configChanges="orientation|keyboardHidden|fontScale"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <!-- 银联支付 end -->
 
-
+        <activity android:name=".mvp.ui.activity.vlayout.MainVLayoutActivity"></activity>
     </application>
 
 </manifest>

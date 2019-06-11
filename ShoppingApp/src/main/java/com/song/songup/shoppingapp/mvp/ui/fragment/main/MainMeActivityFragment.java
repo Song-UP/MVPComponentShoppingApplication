@@ -19,6 +19,8 @@ import com.song.songup.shoppingapp.di.component.main.DaggerMainMeActivityCompone
 import com.song.songup.shoppingapp.mvp.contract.main.MainMeActivityContract;
 import com.song.songup.shoppingapp.mvp.presenter.main.MainMeActivityPresenter;
 import com.song.songup.shoppingapp.mvp.ui.activity.TestActivity;
+import com.song.songup.shoppingapp.mvp.ui.activity.animal.SplashActivity;
+import com.song.songup.shoppingapp.mvp.ui.activity.vlayout.MainVLayoutActivity;
 import com.tencent.bugly.beta.Beta;
 
 import butterknife.BindView;
@@ -129,7 +131,7 @@ public class MainMeActivityFragment extends BaseFragment<MainMeActivityPresenter
     }
 
     @OnClick({R.id.bt_version, R.id.icon_head,R.id.mainmeitemview_check,R.id.mainmeitemview_myview,
-                R.id.webiew})
+                R.id.webiew,R.id.meitemview_vlayout, R.id.itemview_animal})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_version:
@@ -145,6 +147,15 @@ public class MainMeActivityFragment extends BaseFragment<MainMeActivityPresenter
                 break;
             case R.id.mainmeitemview_check:
                 Beta.checkUpgrade(true, false);
+                break;
+
+            case R.id.itemview_animal:
+                startActivity(new Intent(getContext(),SplashActivity.class));
+                break;
+
+//            meitemview_vlayout
+            case R.id.meitemview_vlayout:
+                startActivity(new Intent(getContext(),MainVLayoutActivity.class));
                 break;
         }
     }
