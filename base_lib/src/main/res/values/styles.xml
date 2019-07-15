@@ -24,4 +24,18 @@
         <item name="android:windowExitAnimation">@anim/ios_dialog_exit</item>
         <!-- 退出时的动画 -->
     </style>
+
+    <style name="MyDialog" parent="@android:style/Theme.Holo.Dialog"> <!-- 是否有边框 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>  <!--是否在悬浮Activity之上 -->
+        <item name="android:windowNoTitle">true</item> <!-- 标题 -->
+        <item name="android:windowIsTranslucent">true</item><!--阴影 -->
+        <item name="android:windowBackground">@android:color/transparent</item> <!--半透明--> <!--背景透明-->
+
+        <!-- 还可以加入一些弹出和退出的动画 (lan), 可以用来设置dialog(super(context, R.style.MyDialog)),fragment(FragmentTransment)，activity(ovverider)-->
+        <!--<item name="android:windowEnterAnimation">@anim/ios_dialog_enter</item>-->
+        <!--&lt;!&ndash; 进入时的动画 &ndash;&gt;-->
+        <!--<item name="android:windowExitAnimation">@anim/ios_dialog_exit</item>-->
+        <!-- 退出时的动画 -->
+    </style>
 </resources>

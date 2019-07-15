@@ -34,9 +34,16 @@ public class BaseSubAdapter<T extends Object> extends DelegateAdapter.Adapter<Ba
      * @param dataList
      * @param layoutId
      */
-    public BaseSubAdapter(Context context, LayoutHelper layoutHelper,VirtualLayoutManager.LayoutParams layoutParams,List<T> dataList,int layoutId) {
+    public BaseSubAdapter(Context context, LayoutHelper layoutHelper,List<T> dataList,int layoutId) {
         this(context, layoutHelper,
                 0, new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT),
+                layoutId);
+        this.dataList = dataList;
+    }
+
+    public BaseSubAdapter(Context context, LayoutHelper layoutHelper,VirtualLayoutManager.LayoutParams layoutParams,List<T> dataList,int layoutId) {
+        this(context, layoutHelper,
+                0, layoutParams,
                 layoutId);
         this.dataList = dataList;
     }

@@ -19,6 +19,7 @@ import com.alibaba.android.vlayout.extend.ViewLifeCycleListener;
 import com.alibaba.android.vlayout.layout.FixLayoutHelper;
 import com.alibaba.android.vlayout.layout.FloatLayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.alibaba.android.vlayout.layout.RangeGridLayoutHelper;
 import com.jess.arms.di.component.AppComponent;
 import com.song.songup.shoppingapp.R;
 import com.song.songup.shoppingapp.mvp.ui.fragment.base.MyBaseActivity;
@@ -104,8 +105,7 @@ public class MainVLayoutActivity extends MyBaseActivity {
         createBannerAdapter(delegateAdapter);
         createFloatAdapter(delegateAdapter);
         createSubView(delegateAdapter);
-
-
+        createGrildlayout(delegateAdapter);
 
         recycleview.setAdapter(delegateAdapter);
         final List<DelegateAdapter.Adapter> adapters = new LinkedList<>();
@@ -252,6 +252,7 @@ public class MainVLayoutActivity extends MyBaseActivity {
 
     //添加子布局
     public void createSubView(DelegateAdapter adapter){
+        //创建线性布局
         LinearLayoutHelper layoutHelper = new LinearLayoutHelper();
         layoutHelper.setDividerHeight(3);//设置分割线宽度
 //        layoutHelper.setAspectRatio(4);//设置宽高比
@@ -262,7 +263,7 @@ public class MainVLayoutActivity extends MyBaseActivity {
 
         VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(VirtualLayoutManager.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         List<String> dataList = new ArrayList<>();
-        for (int i =0; i<25;i++){
+        for (int i =0; i<5;i++){
             dataList.add(String.valueOf(i));
         }
         BaseSubAdapter baseSubAdapter = new BaseSubAdapter(this,layoutHelper,
@@ -274,8 +275,83 @@ public class MainVLayoutActivity extends MyBaseActivity {
 
             }
         };
-
         adapter.addAdapter(baseSubAdapter);
+    }
+
+    //创建Gridlayout(瀑布流)
+    public  void createGrildlayout(DelegateAdapter adapter){
+        RangeGridLayoutHelper gridLayoutHelper = new RangeGridLayoutHelper(4);
+        gridLayoutHelper.setBgColor(Color.GREEN);
+        gridLayoutHelper.setHGap(10);//item之间水平间距
+        gridLayoutHelper.setVGap(5);//item 之间的垂直间距
+        gridLayoutHelper.setWeights(new float[]{20f,26.665f});
+
+
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle = setGridLayoutHelper();
+        gridRangeStyle.setSpanCount(2);
+        gridRangeStyle.setBgColor(Color.RED);
+        gridLayoutHelper.addRangeStyle(0,7,gridRangeStyle);
+
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle01 = setGridLayoutHelper();
+        gridRangeStyle01.setSpanCount(2);
+        gridRangeStyle01.setBgColor(Color.YELLOW);
+        gridLayoutHelper.addRangeStyle(8,15,gridRangeStyle01);
+
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle02 = setGridLayoutHelper();
+        gridRangeStyle02.setSpanCount(2);
+        gridRangeStyle02.setBgColor(Color.CYAN);
+        gridLayoutHelper.addRangeStyle(16,22,gridRangeStyle02);
+
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle03 = setGridLayoutHelper();
+        gridRangeStyle03.setSpanCount(1);
+        gridRangeStyle03.setBgColor(Color.DKGRAY);
+        gridRangeStyle02.addChildRangeStyle(0,2,gridRangeStyle03);
+
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle04 = setGridLayoutHelper();
+        gridRangeStyle04.setSpanCount(2);
+        gridRangeStyle04.setBgColor(Color.CYAN);
+        gridRangeStyle02.addChildRangeStyle(3,6,gridRangeStyle04);
+
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle05 = setGridLayoutHelper();
+        gridRangeStyle05.setSpanCount(2);
+        gridRangeStyle05.setBgColor(Color.RED);
+        gridLayoutHelper.addRangeStyle(23,30,gridRangeStyle05);
+
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle06 = setGridLayoutHelper();
+        gridRangeStyle06.setSpanCount(2);
+        gridRangeStyle06.setBgColor(Color.RED);
+        gridRangeStyle05.addChildRangeStyle(0,7,gridRangeStyle06);
+
+        BaseSubAdapter baseSubAdapter = new BaseSubAdapter<String>(this,gridLayoutHelper, createData(23),R.layout.listview_vlayout_float){
+            @Override
+            protected void onBindViewHolderWithOffset(BaseRCViewHold holder, int position, int offsetTotal) {
+                super.onBindViewHolderWithOffset(holder, position, offsetTotal);
+                holder.setText(R.id.tv_name,this.dataList.get(position));
+            }
+        };
+        adapters.add(baseSubAdapter);
+
+    }
+    public RangeGridLayoutHelper.GridRangeStyle setGridLayoutHelper(){
+        RangeGridLayoutHelper.GridRangeStyle gridRangeStyle = new RangeGridLayoutHelper.GridRangeStyle();
+        gridRangeStyle.setWeights(new float[]{46.665f});
+        gridRangeStyle.setPadding(15,15,15,15);
+        gridRangeStyle.setMargin(15,15,15,15);
+        gridRangeStyle.setVGap(5);
+        gridRangeStyle.setHGap(5);
+
+
+        return gridRangeStyle;
+    }
+
+
+    /***********创建数据************/
+    public List<String> createData(int size){
+        List<String> dataList = new ArrayList<>();
+        for (int i =0; i<size;i++){
+            dataList.add(String.valueOf(i));
+        }
+        return dataList;
     }
 
 

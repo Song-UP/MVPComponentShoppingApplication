@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutId="liuhecai_detail"
+        android:shortcutShortLabel="@string/shortcuts1"
+        android:shortcutLongLabel="@string/shortcuts1"
+        android:shortcutDisabledMessage="@string/shortcuts1">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.song.songup.shoppingapp.mvp.ui.activity.MainAcActivity"
+            android:targetPackage="com.example.songup.beta" />
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.song.songup.shoppingapp.mvp.ui.activity.TestActivity"
+            android:targetPackage="com.example.songup.beta">
+            <extra
+                android:name="code"
+                android:value="xglhc" />
+        </intent>
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

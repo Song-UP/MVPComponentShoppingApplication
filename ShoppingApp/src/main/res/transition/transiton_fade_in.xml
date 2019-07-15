@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <fade
+        android:fadingMode="fade_in"
+        android:duration="1000"
+        android:startDelay="0"/>
+
+<!--    android:fadingMode="fade_in"   //fade 模式，进入，退出
+    android:duration="1000"           //持续时间
+    android:matchOrder=""             //对应的view 转场
+    android:interpolator=""          //
+    android:startDelay=""  -->
+
+    <!--<explode -->
+
+</transitionSet>

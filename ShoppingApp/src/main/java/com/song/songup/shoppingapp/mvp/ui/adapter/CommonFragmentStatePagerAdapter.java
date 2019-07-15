@@ -49,4 +49,13 @@ public class CommonFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
         return POSITION_NONE;
     }
 
+    //决定是否刷新的
+//    public int getItemPosition(Object object) {
+//        if (object.getClass().getName().equals(ProjectFragment.class.getName())
+//                || object.getClass().getName().equals(ProjectFragment2.class.getName())) {
+//            return POSITION_NONE;
+//        }
+//        return super.getItemPosition(object);
+//    }
+
 }

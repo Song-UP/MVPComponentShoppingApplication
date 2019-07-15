@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.song.songup.shoppingapp">
 
+    <!--Andriod 8.0安装软件需要的权限-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <!-- buggly 需要的权限 -->
@@ -22,9 +25,9 @@
     <uses-feature android:name="android.hardware.nfc.hce" />
 
     <!-- 在AndroidManifest.xml中配置支持最大高宽比 -->
-    <meta-data
-        android:name="android.max_aspect"
-        android:value="2.4" />
+    <!--<meta-data-->
+        <!--android:name="android.max_aspect"-->
+        <!--android:value="2.4" />-->
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />

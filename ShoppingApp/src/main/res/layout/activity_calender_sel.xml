@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_start_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#383838"
+                    android:text="请选择"
+                    />
+                <TextView
+                    android:id="@+id/tv_start_week"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#383838"
+                    android:text=""
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:id="@+id/tv_count_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#f4493f"
+                    tools:text="共10天"
+                    android:layout_marginTop="5dp"
+                    />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="1dp"
+                    android:background="@drawable/bg_red_rectangle"
+                    android:layout_marginTop="4dp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tv_end_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#383838"
+                    android:text="请选择"
+                    />
+                <TextView
+                    android:id="@+id/tv_end_week"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#383838"
+                    android:text=""
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- 因为可选的日期是确定的，所以这里把92天设置为了了标记日期-->
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+
+            app:calendar_padding="16dp"
+
+            app:calendar_height="46dp"
+
+            app:week_line_margin="0dp"
+            app:week_line_background="#00000000"
+
+            app:week_background="#fff"
+            app:week_text_color="#696969"
+            app:week_text_size="12sp"
+
+            app:current_day_text_color="@color/black_383838"
+            app:current_day_lunar_text_color="@color/black_383838"
+
+            app:selected_text_color="#ffffff"
+            app:selected_theme_color="#f4493f"
+
+            app:current_month_text_color="#9b9b9b"
+            app:current_month_lunar_text_color="#9b9b9b"
+            app:other_month_text_color="#9b9b9b"
+            app:other_month_lunar_text_color="#9b9b9b"
+
+            app:month_view_show_mode="mode_only_current"
+
+            app:select_mode="range_mode"
+
+            app:month_view_scrollable="true"
+
+
+            app:day_text_size="12sp"
+            app:max_select_range="92"
+            app:min_select_range="1"
+            app:month_view="com.song.songup.shoppingapp.mvp.ui.weight.calendars.CustomRangeMonthView"
+            app:week_view="com.song.songup.shoppingapp.mvp.ui.weight.calendars.CustomRangeWeekView"
+            app:week_bar_view="com.song.songup.shoppingapp.mvp.ui.weight.calendars.CustomRangeWeekBar"
+
+            app:week_bar_height="90dp"
+            app:scheme_text="假"
+            app:scheme_text_color="@color/black_383838"
+            app:scheme_theme_color="#00000000"
+            />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@drawable/bg_red_rectangle"
+        android:text="立即查询"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:textColor="#fff"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+</LinearLayout>

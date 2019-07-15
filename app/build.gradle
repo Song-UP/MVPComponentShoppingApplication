@@ -5,6 +5,7 @@ android {
     defaultConfig {
         applicationId "com.song.songup.mvpcomponentshoppingapplication"
         minSdkVersion 19
+//        注意设置了打开位置来源界面之后，必须tagetsdksion必须>=26
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
