@@ -155,6 +155,41 @@ android {
 
 //    resourcePrefix "shopping_" //给 Module 内的资源名增加前缀, 避免资源名冲突
 
+
+//    //配置自定义打包名称
+//    applicationVariants.all { variant ->
+//        variant.outputs.all {
+//            outputFileName = "dqlp_${variant.versionCode}-${variant.versionName}-${releaseTime()}.apk"
+//        }
+//    }
+
+        //配置自定义打包名称
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if(!"realse".equals(variant.buildType.name)){
+                return
+            }
+
+//            variant.packageApplication.outputDirectory  = new File(variant.packageApplication.outputDirectory.absolutePath.
+//                    replace("${variant.flavorName}",
+//                    "${variant.flavorName}_v${variant.mergedFlavor.versionName}"))
+
+//            outputFileName = "app_${variant.versionCode}-${variant.versionName}-${releaseTime()}.apk"
+            String apkDirPath =  variant.packageApplication.outputDirectory.absolutePath;
+            apkDirPath = apkDirPath.substring(0,apkDirPath.indexOf("outputs\\apk"))+"bakApk/app-${releaseTime()}/${variant.flavorName}"
+
+
+            variant.packageApplication.outputDirectory  = new File(apkDirPath)
+            outputFileName = "app-${variant.flavorName}-${variant.buildType.name}.apk"
+        }
+    }
+
+
+
+}
+static def releaseTime(){
+    return new Date().format("yyyy-MM-dd-HH-mm-ss",TimeZone.getTimeZone("utc"))
+
 }
 
 dependencies {
@@ -167,13 +202,12 @@ dependencies {
 //        runtimeOnly project(":module_gold")
     }
     implementation project(':CommonRes')
-
     implementation project(':vlayout')
     //因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
     implementation project(':CommonService')
-//    implementation project(':IMKit')
-//    //    compile project(':RedPacket')
-//    implementation project(':IMLib')
+    //    implementation project(':IMKit')
+    //    //    compile project(':RedPacket')
+    //    implementation project(':IMLib')
     //tools
     implementation 'com.android.support:support-annotations:28.0.0'
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
@@ -200,15 +234,13 @@ dependencies {
     //集成了支付相关的
     implementation 'com.github.javen205:JPay:0.0.4'
     implementation project(path: ':sonicweb')
-
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
     // 指定tinker依赖版本（注：应用升级1.3.5版本起，不再内置tinker）
     //    implementation 'com.tencent.tinker:tinker-android-lib:1.9.1'
     //热修复
-//    implementation 'com.meituan.robust:robust:0.4.82'
-//    implementation files('libs/auto-patch-plugin-0.4.82.jar')
-
+    //    implementation 'com.meituan.robust:robust:0.4.82'
+    //    implementation files('libs/auto-patch-plugin-0.4.82.jar')
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-
     implementation 'com.haibin:calendarview:3.6.4'
+    implementation 'com.android.support:design:28.0.0'
 }

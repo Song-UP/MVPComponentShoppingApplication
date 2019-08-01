@@ -110,3 +110,17 @@ appChannel=beta
 appPackage=com.example.songup.beta
 appVersion=1.0.2
 
+file=D:\AsWorkSpace\MVPComponentShoppingApplication\ShoppingApp\build\outputs\mapping\thirteen\release\mapping.txt
+sha1=8b3d9c83d637c0baf672292d32f9c9d0b14c7350
+appId=c9e666c5fb
+appChannel=thirteen
+appPackage=com.example.songup.thirteen
+appVersion=1.0.2
+
+file=D:\AsWorkSpace\MVPComponentShoppingApplication\ShoppingApp\build\outputs\mapping\chuchu\release\mapping.txt
+sha1=8b3d9c83d637c0baf672292d32f9c9d0b14c7350
+appId=c9e666c5fb
+appChannel=chuchu
+appPackage=com.example.songup.chuchu
+appVersion=1.0.2
+
